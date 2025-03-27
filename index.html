@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멋쟁이사자처럼 대학 13기 OT 요약</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'sans-serif'],
+                    },
+                }
+            }
+        }
+
+        // 시스템 설정에 따른 다크모드 감지 및 적용
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            // 다크모드 토글 버튼 이벤트 리스너
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                document.documentElement.classList.toggle('dark');
+            });
+        });
+    </script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.375rem;
+            height: 0.75rem;
+            width: 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.3125rem;
+            top: 1.5rem;
+            bottom: -1.5rem;
+            width: 0.125rem;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .light .timeline-item::before {
+            background-color: #0ea5e9;
+        }
+
+        .light .timeline-item::after {
+            background-color: #e0f2fe;
+        }
+
+        .dark .timeline-item::before {
+            background-color: #38bdf8;
+        }
+
+        .dark .timeline-item::after {
+            background-color: #0c4a6e;
+        }
+
+        .section-card {
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
+    <header class="sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">멋쟁이사자처럼 대학 13기 OT 요약</h1>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden dark:block" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block dark:hidden" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-2 overflow-x-auto">
+            <ul class="flex space-x-6 whitespace-nowrap">
+                <li><a href="#intro" class="text-primary-600 dark:text-primary-400 font-medium">소개</a></li>
+                <li><a href="#company" class="hover:text-primary-600 dark:hover:text-primary-400">회사 소개</a></li>
+                <li><a href="#university" class="hover:text-primary-600 dark:hover:text-primary-400">대학 소개</a></li>
+                <li><a href="#plan" class="hover:text-primary-600 dark:hover:text-primary-400">13기 운영 계획</a></li>
+                <li><a href="#events" class="hover:text-primary-600 dark:hover:text-primary-400">특별 이벤트</a></li>
+                <li><a href="#schedule" class="hover:text-primary-600 dark:hover:text-primary-400">연간 일정</a></li>
+                <li><a href="#faq" class="hover:text-primary-600 dark:hover:text-primary-400">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="intro" class="mb-12">
+            <div
+                class="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg border border-primary-100 dark:border-primary-800 mb-6">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary-500 dark:text-primary-400"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold mb-2 text-primary-800 dark:text-primary-300">
+                            "멋쟁이사자처럼 대학은 국내 최대 규모의 IT 창업 동아리입니다."
+                        </p>
+                        <p class="text-primary-700 dark:text-primary-400">13기 슬로건: <span class="font-bold">"모험의 순간, 내
+                                멋대로 해!"</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4">OT 발표자 소개</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2">나성현</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">멋쟁이사자처럼 대표</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>자체 액셀러레이팅 프로그램 운영 및 실제 투자 진행</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>대학 생활 중 창업 희망 학생들에게 적극적인 지원 제공</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>10년간의 노하우 및 멋사 네트워크 활용하여 스타트업 성장 지원</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>링크드인 통해 소통 가능 (창업, 가벼운 커피챗 등)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2">김지영</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">멋쟁이사자처럼 커뮤니티 그룹 리드</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>멋사 대학 커뮤니티 팀 소속</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>학생들과 가장 가까운 접점에서 소통 담당</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>OT 주요 내용: 멋사 회사 소개, 멋사 대학 소개, 13기 가이드북, 이벤트 안내</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="company" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">멋쟁이사자처럼 회사 소개</h2>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">미션 및 비전</h3>
+                <p class="mb-4">
+                    <span class="font-semibold">미션:</span> 사람과 기술을 연결
+                </p>
+                <p class="mb-4">
+                    <span class="font-semibold">비전:</span> Possibility to Reality
+                </p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">주요 사업</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>IT 교육 기회 제공 (부트캠프, 교육 과정 운영)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>IT 기술을 통한 사회 문제 해결</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>지속 가능한 커뮤니티 구축 (멋사 대학 등)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>다양한 IT 직무 관련 부트캠프 운영 (홈페이지 참고)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold mb-4">글로벌 운영</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>한국:</strong> 교육/커뮤니티 중심 운영</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>미국:</strong> 스타트업 육성/투자, LikeLion Univ US 운영</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>베트남:</strong> 법인 운영</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="university" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">멋쟁이사자처럼 대학 소개</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div
+                    class="section-card bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-2">정의</h3>
+                    <p class="text-xl font-bold">13년차 IT 창업 커뮤니티</p>
+                </div>
+                <div
+                    class="section-card bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-2">참여 대학</h3>
+                    <p class="text-xl font-bold">97개 대학</p>
+                </div>
+                <div
+                    class="section-card bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-2">출신 학생</h3>
+                    <p class="text-xl font-bold">12,000여 명</p>
+                </div>
+                <div
+                    class="section-card bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-2">출시 서비스</h3>
+                    <p class="text-xl font-bold">1,800개 이상</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">주요 졸업생/창업 사례</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">뱅크샐러드</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">개인 자산관리 서비스</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">자소설닷컴</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">자기소개서 작성 플랫폼</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">그리팅</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">인사관리 솔루션</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">탈잉</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">재능 공유 플랫폼</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">리튼 AI</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">국내 대표 AI 서비스 (연세대 3기 공동창업자)</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h4 class="font-bold">릴리스 AI</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">유튜브 요약 AI 서비스 (서강대 졸업생)</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">
+                    최근 사례: 아기고래 (정주영 창업경진대회 대상, 서강대 공동창업자), 바인드/애슬러 (CTO가 멋사 대학 출신)
+                </p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold mb-4">글로벌 네트워크</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>미국 유수 대학 학생들도 LikeLion Univ US로 활동 중</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>한-미 네트워크 강화 및 글로벌 커뮤니티 지향 (작년부터 이벤트 확대, 올해 더 강화)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>온/오프라인 네트워킹 기회 제공 예정</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>웹 예능 예고:</strong> 실리콘밸리 교류 유튜브 콘텐츠 <strong>4월 EO 채널 공개 예정</strong></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="plan" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">멋쟁이사자처럼 대학 13기 운영 계획</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">참여 대학</h3>
+                    <p class="mb-4">전국 <strong>54개 대학</strong>이 참여합니다.</p>
+                    <p>커뮤니티 장점: 전국 단위 네트워킹 기회 (올해 더욱 강화 예정)</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">2학기 심화 트랙</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold">취업 트랙</h4>
+                            <p class="text-gray-600 dark:text-gray-400">취업 준비 집중 지원 (심화 커리큘럼, 기업 연계 프로그램/공모전 등)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">창업 트랙</h4>
+                            <p class="text-gray-600 dark:text-gray-400">실제 창업 의지 있는 소수 선발 (면접 진행), 공간/투자 검토/연계/BM 개발 등
+                                액셀러레이팅 지원 (데모데이 연계)</p>
+                            <p class="text-sm text-primary-600 dark:text-primary-400 mt-1">* 팀 내 비멋대원 있어도 지원 가능성 있음</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">중앙운영단</h3>
+                <p class="mb-4">54개 대학 대표 54명 참여 (작년과 달리 전원 참여)</p>
+                <p class="mb-4">역할: 본사 커뮤니티 팀과 긴밀 소통, 학교별 상황 공유, 소통 창구</p>
+
+                <h4 class="font-semibold mt-4 mb-2">본사 커뮤니티 팀</h4>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                    <li>이준영 (팀장)</li>
+                    <li>김지영 (리드)</li>
+                    <li>박연경 (매니저)</li>
+                    <li>김정아 (매니저)</li>
+                </ul>
+
+                <h4 class="font-semibold mt-4 mb-2">부서 구성</h4>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h5 class="font-bold">운영부 (19명)</h5>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">부장: 공윤호 (숭실대)</p>
+                        <p>대학별 운영 노하우 공유, 본사 행사 기획/운영 참여, 소통 채널(디스코드) 관리</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h5 class="font-bold">학술부 (20명)</h5>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">부장: 이가은 (한양대 에리카)</p>
+                        <p>스터디/커리큘럼 모니터링 및 공유, 2학기 심화 트랙(취업) 커리큘럼 기획</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                        <h5 class="font-bold">홍보부 (15명)</h5>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">부장: 정유진 (서울여대)</p>
+                        <p>대학생 시각 콘텐츠(인스타그램, 유튜브) 제작/운영, 멋대 홍보</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">오프라인 전국 투어</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>목적:</strong> 학생들과 직접 만나 소통, 의견 청취, 커리어 상담, AI 인재 발굴 등</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>방식:</strong> 4월 초(중간고사 전), 5월 중(중간고사 후) 방문</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>수도권은 인근 학교 연합 모임, 지방은 개별 방문 가능성 높음</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>일정 조율:</strong> 중앙운영단 통해 학교별 희망 일정 취합 후 조율 (회사 일정 고려)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">교육 VOD 지원</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>규모:</strong> 총 200만원 상당 최신 강의</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>구성:</strong> AI 강의 11개 (전원 필수 제공), 웹/앱 개발 강의, 기획/디자인 강의 (트랙별 선택 1)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>수강 신청 기간:</strong> <span class="font-bold text-red-500 dark:text-red-400">3월
+                                31일(월) 자정까지 (연장/변경 불가)</span></span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>방법:</strong> QR코드 통해 신청 (운영진/아기사자 모두 해당)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>문의:</strong> 디스코드 DM 또는 질문 채널</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-6">
+                <h3 class="text-xl font-bold mb-4">소통 채널: 디스코드</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>목적:</strong> 상호 네트워킹 및 소통 강화 (12기 카톡방 대체)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>필수 사항:</strong> 가입 후 닉네임 설정 (<code>실명 (학교명)</code> 형식)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-500 dark:text-red-400 mr-2">!</span>
+                        <span>미설정/불분명 시 강퇴 처리</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>활용:</strong> 공개 채널 질문, 본사/중앙운영단 답변, 앱 설치 및 알림 설정 권장</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-xl font-bold mb-4">수료 조건</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>아기사자:</strong> 아이디어톤, 해커톤 필수 참여</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span><strong>대표/운영진:</strong> 교내 아기사자 2/3 이상 유지 및 1년 활동 완수</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                        <span>수료증 연말 발급 예정</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="events" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">13기 특별 이벤트 안내</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div
+                        class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI 네트워킹 w/ 미네르바 대학</h3>
+                    <ul class="space-y-2">
+                        <li><strong>일시:</strong> 4월 3일(목) 오후</li>
+                        <li><strong>장소:</strong> 멋사 본사 라운지 (광화문)</li>
+                        <li><strong>내용:</strong> 양교 소개, AI 미니 세션, 소셜 밍글링</li>
+                        <li><span class="text-red-500 dark:text-red-400">통역 미제공</span> (AI 번역기 활용 권장)</li>
+                        <li>출석 확인서 발급 가능</li>
+                        <li><strong>신청:</strong> QR코드 (디스코드 공지 확인)</li>
+                        <li><span class="font-bold">마감 임박 (OT 당일까지만 추가 접수)</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div
+                        class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">TIL 블로그 챌린지</h3>
+                    <ul class="space-y-2">
+                        <li><strong>대상:</strong> 제공된 AI 강의 11개</li>
+                        <li><strong>내용:</strong> 강의 수강 후 배운 점(Today I Learned)을 개인 블로그에 기록 후 링크 제출</li>
+                        <li><strong>혜택:</strong></li>
+                        <li class="pl-4">- 최다 작성자: 네이버페이 상품권</li>
+                        <li class="pl-4">- 우수 작성자: 치킨+콜라 기프티콘</li>
+                        <li class="pl-4">- <strong>참여자 전원: 아이스 아메리카노 기프티콘</strong></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div
+                        class="flex items-center justify-center h-12 w-12 rounded-md bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">"내 멋대로" 인스타그램 스토리 이벤트</h3>
+                    <p class="mb-3 font-semibold">참여 방법:</p>
+                    <ol class="list-decimal pl-5 space-y-1 mb-3">
+                        <li>제공된 이미지 템플릿 다운로드 (디스코드)</li>
+                        <li>빈칸 채우기: <code>____의 순간, 내 멋대로 해!</code></li>
+                        <li>인스타그램 스토리에 게시</li>
+                        <li><strong>필수 태그: @likelion.official, @likelion.univ</strong></li>
+                    </ol>
+                    <p class="mb-2 font-semibold">혜택:</p>
+                    <ul class="space-y-1">
+                        <li>멋대 연합상 (참여율 높은 학교)</li>
+                        <li>내멋대로상 (기발/재미있는 문구 개인)</li>
+                        <li><strong>참가상 (전원): 아이스 아메리카노 기프티콘</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="schedule" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">연간 주요 일정</h2>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div class="space-y-6">
+                    <div class="timeline-item">
+                        <h3 class="font-bold text-lg">3월</h3>
+                        <p>아기사자 모집 마감, OT, VOD 교육 자료 제공 시작</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="font-bold text-lg">4월</h3>
+                        <p>4월 3일: AI 네트워킹 w/ 미네르바 대학</p>
+                        <p>4월 초: 오프라인 전국 투어 1차</p>
+                        <p>4월 28일: 아이디어톤 주제 공개</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="font-bold text-lg">5월</h3>
+                        <p>5월 중: 오프라인 전국 투어 2차</p>
+                        <p>아이디어톤 진행</p>
+                        <p class="font-semibold text-primary-600 dark:text-primary-400">5월 31일: 아이디어톤 본선 (토요일 오후, 멋사 본사
+                            오프라인)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="font-bold text-lg">8월</h3>
+                        <p>해커톤 주제 공개 (해커톤 1달 전)</p>
+                        <p class="font-semibold text-primary-600 dark:text-primary-400">8월 말: 해커톤 (전국 최대 규모)</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="font-bold text-lg">9월~12월 (2학기)</h3>
+                        <p>심화 트랙 운영 (취업/창업)</p>
+                        <p>학교 연합 행사 진행</p>
+                        <p>12월: 데모데이</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="major-events" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">주요 행사 상세</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">아이디어톤 (5월)</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span><strong>주제:</strong> 4/28 공개</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span><strong>방식:</strong></span>
+                        </li>
+                        <li class="pl-5">1. 팀(3~6명) 구성</li>
+                        <li class="pl-5">2. 학교별 예선</li>
+                        <li class="pl-5">3. 그룹별 2차 예선</li>
+                        <li class="pl-5">4. 본선 (5/31, 토, 오후, 멋사 본사 오프라인)</li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>심사 가이드 추후 공유</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-4">해커톤 (8월 말)</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span><strong>특징:</strong> 전국 최대 규모, <strong>개발 퀄리티 향상 지원</strong>에 초점</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span><strong>방식:</strong></span>
+                        </li>
+                        <li class="pl-5">1. 주제 1달 전 공개</li>
+                        <li class="pl-5">2. 1달간 개발</li>
+                        <li class="pl-5">3. 오프라인 행사 참여</li>
+                        <li class="flex items-start">
+                            <span class="text-primary-600 dark:text-primary-400 mr-2">- </span>
+                            <span>정확한 날짜 추후 공지</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">자주 묻는 질문</h2>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">나성현 대표 연락은 어떻게 하나요?</h3>
+                        <p>링크드인을 통해 진로/창업 상담이 가능합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">2학기 트랙은 어떻게 진행되나요?</h3>
+                        <p>커리큘럼/세부 일정은 추후 공유될 예정입니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">학교별 커리큘럼은 어떻게 공유되나요?</h3>
+                        <p>학술부를 통해 우수 사례가 공유될 예정입니다. 어려움이 있을 시 학술부에 문의하세요.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">아이디어톤/해커톤 참가 자격은 무엇인가요?</h3>
+                        <p>멋대 13기 소속 인원만 참가 가능합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">학교 간 프로젝트는 가능한가요?</h3>
+                        <p>적극 권장됩니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">창업 트랙 선발 인원은 몇 명인가요?</h3>
+                        <p>미정이지만 소수 정예로 선발될 예정입니다. 적극적 어필(행사 참여, 대표 연락 등)이 중요합니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg mb-2">중앙 해커톤 일정은 언제인가요?</h3>
+                        <p>8월 말 오프라인으로 확정되었습니다. 세부 날짜는 장소 등 확정 후 공지될 예정입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">마무리 메시지</h2>
+            <div
+                class="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-lg border border-primary-100 dark:border-primary-800">
+                <h3 class="text-xl font-bold mb-4">AI 시대 커뮤니티의 중요성</h3>
+                <p class="mb-4">
+                    정보 습득과 개별 작업은 AI로 가능하지만, 협업과 사회생활, 그리고 성장에는 커뮤니티 경험이 필수적입니다. 고립되지 말고 함께 성장해 나가는 경험을 쌓아가세요.
+                </p>
+                <p class="mb-4">
+                    멋대 활동의 의미는 AI를 활용하되, 함께 부딪히고 소통하며 배우는 경험에 있습니다. 아이디어톤, 해커톤과 같은 행사에 적극 참여하시기 바랍니다.
+                </p>
+                <p class="font-semibold">
+                    1년 동안 꾸준히 참여하고 소통하며 함께 성장하기를 기대합니다. 디스코드에서 활발한 소통 부탁드립니다.
+                </p>
+                <p class="mt-4 text-xl font-bold text-primary-600 dark:text-primary-400">
+                    "모험의 순간, 내 멋대로 해!"
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold mb-2">멋쟁이사자처럼 대학</h3>
+                    <p class="text-gray-600 dark:text-gray-400">"국내 최대 규모의 IT 창업 동아리"</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#"
+                        class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+                        <span class="sr-only">YouTube</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 border-t border-gray-200 dark:border-gray-700 pt-6">
+                <p class="text-center text-gray-500 dark:text-gray-400 text-sm">
+                    &copy; 2025 멋쟁이사자처럼 대학. 모든 권리 보유.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
